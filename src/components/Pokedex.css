@@ -8,16 +8,17 @@
 }
 
 .pokemon-logo {
-  width: 200px; 
+  width: 300px; 
   height: auto; 
   margin: 0 auto;
 }
 
 .pokedex-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Increased min-width of cards */
   gap: 1rem;
   padding: 1rem;
+  justify-content: center;
 }
 
 .card {
@@ -27,10 +28,30 @@
   justify-content: center;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  padding: 2rem; /* Increase padding */
+  margin: 0.5rem; /* Ensure cards have a bit of space around them */
+  height: 250px; /* Set a fixed height */
   background: #f9f9f9;
   transition: transform 0.2s;
   text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .pokedex-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .card {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pokedex-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .card {
+    height: 150px;
+  }
 }
 
 .card:hover {
